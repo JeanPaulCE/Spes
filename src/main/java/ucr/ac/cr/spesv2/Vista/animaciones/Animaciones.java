@@ -11,7 +11,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.xml.bind.JAXB;
 import ucr.ac.cr.spesv2.Vista.render.RenderEscala;
 
 /**
