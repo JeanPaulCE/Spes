@@ -39,6 +39,9 @@
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProduccionesActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="remove(btnProducciones);&#xa;add(btnProducciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(render.escalarCordenada(10), render.escalarCordenada(20), -1, -1));"/>
       </AuxValues>
@@ -63,6 +66,9 @@
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEventosActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="remove(btnEventos);&#xa;add(btnEventos, new org.netbeans.lib.awtextra.AbsoluteConstraints(render.escalarCordenada(480), render.escalarCordenada(20), -1, -1));"/>
       </AuxValues>
@@ -87,6 +93,9 @@
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUsuariosActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="remove(btnUsuarios);&#xa;add(btnUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(render.escalarCordenada(780), render.escalarCordenada(20), -1, -1));"/>
       </AuxValues>
@@ -120,14 +129,14 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="linea">
+    <Component class="javax.swing.JLabel" name="lineaJlb">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
           <Connection code="render.escalarImageIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/img/linea.png&quot;)))" type="code"/>
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="remove(linea);&#xa;add(linea, new org.netbeans.lib.awtextra.AbsoluteConstraints(render.escalarCordenada(12),render.escalarCordenada(75), -1, -1));"/>
+        <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="remove(lineaJlb);&#xa;add(lineaJlb, new org.netbeans.lib.awtextra.AbsoluteConstraints(render.escalarCordenada(12),render.escalarCordenada(75), -1, -1));"/>
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
