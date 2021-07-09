@@ -36,10 +36,10 @@ public class PanelNavegador extends PanelPadre {
     
     public PanelNavegador() {
         render = new RenderEscala(1920);
-        linea = new Linea(20, 70);
+        linea = new Linea(10, 70);
          initComponents();
         // Animaciones
-        
+        lineaJlb.setVisible(false);
         AnimacionBotonUsuario botonUsuarioA = new AnimacionBotonUsuario();
         AnimacionBotonEventos botonEventosA = new AnimacionBotonEventos();
         AnimacionBotonProducciones botonProduccionesA = new AnimacionBotonProducciones();
@@ -196,7 +196,7 @@ public class PanelNavegador extends PanelPadre {
         super.paint(g); //To change body of generated methods, choose Tools | Templates.
         //System.out.println("ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelNavegador.print()");
         if (linea.getImg()!= null&&frame!=null) {
-            System.out.println("PN--"+linea.getX());
+            //System.out.println("PN--"+linea.getX());
             g.drawImage(linea.getImg().getImage(), linea.getX(), linea.getY(),frame);
         }
      

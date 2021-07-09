@@ -16,10 +16,10 @@ import ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelNavegador;
  */
 public class AnimacionBotonUsuario extends Animaciones{
 
+  
 
-    public AnimacionBotonUsuario(JLabel linea,PanelNavegador panel) {
-        super(linea, panel);
-    }
+
+    
     
     @Override
     public void mouseEntered(MouseEvent arg0) {

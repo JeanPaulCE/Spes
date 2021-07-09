@@ -1,3 +1,4 @@
+ucr\ac\cr\spesv2\Vista\render\RenderPaint.class
 ucr\ac\cr\spesv2\Controlador\exceptions\PreexistingEntityException.class
 ucr\ac\cr\spesv2\Modelo\Perfil.class
 ucr\ac\cr\spesv2\Vista\PanelesRegistros\PanelUsuario$1.class
@@ -6,6 +7,7 @@ ucr\ac\cr\spesv2\Vista\GUIPrincipal.class
 ucr\ac\cr\spesv2\Vista\PanelesMenuPrincipal\PanelTablas.class
 ucr\ac\cr\spesv2\Controlador\JPA\UsuarioJpaController.class
 ucr\ac\cr\spesv2\Vista\PanelesMenuPrincipal\PanelBotones.class
+ucr\ac\cr\spesv2\Vista\PanelesMenuPrincipal\PanelNavegador$1.class
 ucr\ac\cr\spesv2\Controlador\exceptions\NonexistentEntityException.class
 ucr\ac\cr\spesv2\Vista\animaciones\AnimacionBotonUsuario.class
 ucr\ac\cr\spesv2\Modelo\registros\Registro.class
@@ -29,6 +31,7 @@ ucr\ac\cr\spesv2\Modelo\Registro.class
 ucr\ac\cr\spesv2\Vista\PanelesRegistros\PanelUsuario.class
 ucr\ac\cr\spesv2\Vista\PanelesMenuPrincipal\PanelTablas$1.class
 ucr\ac\cr\spesv2\Vista\render\RenderEscala.class
+ucr\ac\cr\spesv2\Vista\animaciones\Linea.class
 ucr\ac\cr\spesv2\Controlador\Controlador.class
 ucr\ac\cr\spesv2\Vista\GuiRegistro.class
 ucr\ac\cr\spesv2\Modelo\Elemento.class

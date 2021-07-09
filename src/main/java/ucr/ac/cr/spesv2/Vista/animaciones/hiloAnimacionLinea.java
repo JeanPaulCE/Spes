@@ -5,8 +5,7 @@
  */
 package ucr.ac.cr.spesv2.Vista.animaciones;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelNavegador;
@@ -18,70 +17,122 @@ import ucr.ac.cr.spesv2.Vista.render.RenderImg;
  */
 public class hiloAnimacionLinea extends Thread {
 
-   
-    private JLabel linea;
-    private RenderImg renderImg;
-    private int x;
-    private int ancho;
+    private Linea linea;
+
+
+    private int xObjetivo;
+    private int xActual;
+
+    private int anchoObjetivo;
+    private int anchoActual;
+    
     private double escalaObjetivo;
+    private double escalaActual;
+    
+
+   
+   
+
+    private boolean status = false;
     private PanelNavegador panel;
 
-    public hiloAnimacionLinea(String animacion,JLabel linea, int x, int ancho,PanelNavegador panelNavegador, RenderImg renderImg) {
+    public hiloAnimacionLinea(String animacion, Linea linea, PanelNavegador panelNavegador,int xObjetivo, int wObjetivo) {
         super(animacion);
         this.linea = linea;
-        this.x = x;
-        this.ancho = ancho;
         this.panel = panelNavegador;
-        this.renderImg = renderImg;
-       
+        this.anchoObjetivo = wObjetivo;
+        this.xObjetivo = xObjetivo;
+        status = true;
+        
+
     }
 
     @Override
     public void run() {
-        int xLinea = linea.getX();
-        int anchoLinea = linea.getWidth();
-        escalaObjetivo = ( (double)ancho / anchoLinea);
-       
-        
-        double escala = 1;
-        double yaNoSeNombres = escalaObjetivo - escala;
 
-        int contadorObjetivo = 0;
-        int contador = 0;
-        
-        if (xLinea < x) {
-            contadorObjetivo = x - xLinea;
-        } else if (xLinea > x) {
-            contadorObjetivo = xLinea - x;
-        }
-        int xLineaT = xLinea;
-        while (contador<contadorObjetivo&&!isInterrupted()) {
-            double porcentajeContador = (double)((double)100 * (double)contador) / (double)contadorObjetivo;
-            double aSumar = (double)((double)yaNoSeNombres*(double)porcentajeContador)/100;
-            //System.out.println((double)escala+(double)aSumar);
-            linea.setIcon(renderImg.escalar((ImageIcon) linea.getIcon(), (double)escala+(double)aSumar));
-            if (xLinea < x) {      
-                xLineaT+=6;
-                linea.setLocation(xLineaT, linea.getY());
-                
-            } else if (xLinea > x) {
-                xLineaT-=6;
-                linea.setLocation(xLineaT, linea.getY());
-                
+        if (status) {
+            int sumador = 0;
+            xActual = linea.getX();
+            anchoActual = linea.getWidth();
+            double avance = 0;
+            int porRecorrer = 0;
+            int recorrido;
+            
+            double escalaTemp;
+            
+            
+            if (xObjetivo > xActual) {
+                sumador = 2;
+                porRecorrer = xObjetivo - xActual;
+            } else {
+                sumador = -2;
+                porRecorrer = xActual - xObjetivo;
             }
-            try {
-                sleep(1);
+            
+            escalaObjetivo = (double)(anchoObjetivo*100)/linea.getWidthOriginal();
+            escalaActual = (double)(anchoActual*100)/linea.getWidthOriginal();
+            if (anchoObjetivo > anchoActual) {
                 
-            } catch (InterruptedException ex) {
-                Logger.getLogger(hiloAnimacionLinea.class.getName()).log(Level.SEVERE, null, ex);
+                escalaTemp = escalaObjetivo - escalaActual;
+                
+            } else {
+                
+                escalaTemp = escalaActual-escalaObjetivo;
             }
-            contador+=6 ;
+         
+            System.out.println("ucr.ac.cr.spesv2.Vista.animaciones.hiloAnimacionLinea.run()");
+            System.out.println(escalaTemp);
+            System.out.println(anchoActual);
+            System.out.println(escalaActual);
+            System.out.println(escalaObjetivo);
+            System.out.println("ucr.ac.cr.spesv2.Vista.animaciones.hiloAnimacionLinea.run()");
+            
+            while (status && avance<100) {
+                xActual += sumador;
+
+                if (sumador > 0) {
+                    recorrido = xObjetivo - xActual;
+                } else {
+                    recorrido = xActual - xObjetivo;
+                }
+                
+                avance = (double) 100-(recorrido * 100) / porRecorrer;
+                linea.setLocation(xActual, linea.getY());
+                
+                //System.out.println("hA--"+avance);
+                
+                double nuevaEscala = 0;
+                if (anchoObjetivo > anchoActual) {
+                    nuevaEscala = (double)escalaActual+((escalaTemp*avance)/100);
+                }else{
+                    nuevaEscala = (double)escalaActual-((escalaTemp*avance)/100);
+                }
+                
+                
+                System.out.print(nuevaEscala+" \n\n");
+                //Icon img = renderImg.escalar((ImageIcon) linea.getIcon(),(nuevaEscala/100));
+                linea.setEscala((nuevaEscala/100));
+                //linea.setIcon(img);
+                
+                try {
+                    sleep(2);
+                    
+                } catch (Exception e) {
+
+                }
+
+            }
+            System.out.print("\n\n END\n");
+            System.out.println("ucr.ac.cr.spesv2.Vista.animaciones.hiloAnimacionLinea.run()");
+            status = false;
         }
-        int lx = linea.getX();
-        int ly = linea.getY();
-        panel.remove(linea);
-        panel.add(linea,new org.netbeans.lib.awtextra.AbsoluteConstraints( lx, ly, -1, -1));
         
+        
+        this.interrupt();
+    }
+
+    public void status() {
+        this.status = !this.status;
     }
 
 }

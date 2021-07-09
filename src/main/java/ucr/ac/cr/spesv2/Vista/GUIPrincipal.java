@@ -6,6 +6,7 @@
 package ucr.ac.cr.spesv2.Vista;
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
 import ucr.ac.cr.spesv2.Controlador.Controlador;
 import ucr.ac.cr.spesv2.Controlador.ControladorGui;
@@ -13,6 +14,7 @@ import ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelBotones;
 import ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelNavegador;
 import ucr.ac.cr.spesv2.Vista.PanelesMenuPrincipal.PanelTablas;
 import ucr.ac.cr.spesv2.Vista.render.RenderEscala;
+import ucr.ac.cr.spesv2.Vista.render.RenderPaint;
 
 /**
  *
@@ -29,6 +31,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
     public GUIPrincipal() {
         render = new RenderEscala(1920);
         initComponents();
+        panelNavegador1.setFrame(this);
         //loanding.setOpaque(true);
         loanding.setVisible(false);
 
@@ -36,6 +39,7 @@ public class GUIPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         escuchar(new ControladorGui(this));
+        
 
     }
 
@@ -140,6 +144,14 @@ public class GUIPrincipal extends javax.swing.JFrame {
         panelTablas1.escuchar(controlador);
 
     }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g); //To change body of generated methods, choose Tools | Templates.
+        RenderPaint motor = new RenderPaint(this);
+        motor.start();
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel2;

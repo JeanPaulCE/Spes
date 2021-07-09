@@ -9,9 +9,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.JButton;
 import ucr.ac.cr.spesv2.Vista.render.RenderEscala;
+
 
 /**
  *
@@ -19,13 +19,10 @@ import ucr.ac.cr.spesv2.Vista.render.RenderEscala;
  */
 public class Animaciones implements ActionListener, MouseListener{
     protected RenderEscala renderEscala = new RenderEscala(1920);
-    protected JPanel panel;
-    protected JLabel linea;
+  
+ 
 
-    public Animaciones(JLabel linea,JPanel panel) {
-        this.panel = panel;
-        this.linea = linea;
-    }
+    
     
     
     
@@ -39,6 +36,9 @@ public class Animaciones implements ActionListener, MouseListener{
     @Override
     public void mouseClicked(MouseEvent arg0) {
        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       JButton btn = (JButton)arg0.getSource();
+       //animacion.mover(btn.getX(), btn.getWidth());
+       //animacion.run();
     }
 
     @Override
